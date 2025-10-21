@@ -5,15 +5,15 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Album example · Bootstrap v5.3</title>
-    <meta name="description" content="Album example is a quick and simple project to help build a simple, responsive, and modern website.">
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-9ndCyUa6mY5hO4nXFbN5f0sAEn6ZhR+8iYjQ77Y/8f7D3zGZ6zrY1ZrG+6a3+9c2" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Album example · Bootstrap v5.3</title>
+    <meta name="description" content="Album example is a quick and simple project to help build a simple, responsive, and modern website.">
 
     <style>
       .bd-placeholder-img {
@@ -69,7 +69,7 @@
     </style>
   </head>
   <body>
-
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <header>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
