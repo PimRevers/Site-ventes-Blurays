@@ -82,6 +82,23 @@
     }
 
     /* Produits */
+    .online {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 40px auto 20px auto;
+    }
+
+    .online h2 {
+      font-size: 2em;
+      color: var(--bleu-fonce);
+      background: rgba(255,255,255,0.7);
+      padding: 10px 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
     .produits {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -151,6 +168,10 @@
       .banner h1 {
         font-size: 2em;
       }
+
+      .online h2 {
+        font-size: 1.5em;
+      }
     }
   </style>
 
@@ -161,13 +182,17 @@
     <ul>
       <li><a href="#">Accueil</a></li>
       <li><a href="#">Catalogue</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#">Connexion</a></li>
       <li><a href="#">Panier</a></li>
     </ul>
   </nav>
 
   <div class="banner">
-    <h1>Vente de Films BluRays physique</h1>
+    <h1>Vente de Films Blu-Rays physique</h1>
+  </div>
+
+  <div class="online">
+    <h2>Derniers Blu-Ray mis en ligne</h2>
   </div>
 
   <section class="produits">
@@ -198,7 +223,7 @@
   </section>
 
   <footer>
-    © 2025 BluRay Store — Tous droits réservés.
+    © 2025 Blu-Ray Store — Tous droits réservés.
   </footer>
 </body>
 </html>
