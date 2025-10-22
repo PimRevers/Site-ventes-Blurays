@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BluRay Store</title>
+
   <style>
     :root {
-      --bleu-fonce: #0a3d62;
+      --bleu-fonce: #003366;
+      --bleu-moyen: #0066cc;
       --bleu-clair: #1e90ff;
-      --gris-fonce: #1c1c1c;
+      --gris-fond: #e8edf3;
+      --gris-carte: #f5f7fa;
+      --texte: #1a1a1a;
       --blanc: #ffffff;
     }
 
@@ -20,8 +24,8 @@
 
     body {
       font-family: "Segoe UI", Arial, sans-serif;
-      background: var(--gris-fonce);
-      color: var(--blanc);
+      background: var(--gris-fond);
+      color: var(--texte);
     }
 
     /* Navigation */
@@ -29,13 +33,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--bleu-fonce);
+      background: linear-gradient(135deg, var(--bleu-fonce), var(--bleu-moyen), var(--bleu-clair));
       padding: 15px 30px;
+      color: var(--blanc);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
     nav .logo {
       font-size: 1.5em;
       font-weight: bold;
+      text-shadow: 0 0 5px rgba(255,255,255,0.3);
     }
 
     nav ul {
@@ -47,17 +54,17 @@
     nav ul li a {
       color: var(--blanc);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: opacity 0.2s;
     }
 
     nav ul li a:hover {
-      color: var(--bleu-clair);
+      opacity: 0.8;
     }
 
     /* Bannière */
     .banner {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                  url('https://via.placeholder.com/1200x400/0a3d62/ffffff?text=Blu-ray+Store') center/cover no-repeat;
+      background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+                  url('https://via.placeholder.com/1200x400/1e90ff/ffffff?text=Blu-ray+Store') center/cover no-repeat;
       height: 300px;
       display: flex;
       justify-content: center;
@@ -67,7 +74,11 @@
 
     .banner h1 {
       font-size: 3em;
-      color: var(--blanc);
+      color: var(--bleu-fonce);
+      background: rgba(255,255,255,0.7);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     /* Produits */
@@ -81,16 +92,17 @@
     }
 
     .carte {
-      background: #2c2c2c;
+      background: var(--gris-carte);
       border-radius: 10px;
       padding: 15px;
       text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .carte:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 15px rgba(30, 144, 255, 0.4);
+      box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
     }
 
     .carte img {
@@ -102,10 +114,11 @@
     .carte h3 {
       font-size: 1.1em;
       margin-bottom: 8px;
+      color: var(--bleu-fonce);
     }
 
     .prix {
-      color: var(--bleu-clair);
+      color: var(--bleu-moyen);
       font-weight: bold;
       margin-bottom: 10px;
     }
@@ -126,11 +139,12 @@
 
     /* Pied de page */
     footer {
-      background: #0a0a0a;
+      background: linear-gradient(135deg, var(--bleu-clair), var(--bleu-moyen), var(--bleu-fonce));
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
-      color: #aaa;
+      color: var(--blanc);
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
     }
 
     @media (max-width: 600px) {
@@ -139,21 +153,21 @@
       }
     }
   </style>
+
 </head>
 <body>
   <nav>
-    <div class="logo">🎬 BluRay Store</div>
+    <div class="logo">Blu-Ray Store</div>
     <ul>
       <li><a href="#">Accueil</a></li>
       <li><a href="#">Catalogue</a></li>
-      <li><a href="#">Promotions</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#">Panier 🛒</a></li>
+      <li><a href="#">Panier</a></li>
     </ul>
   </nav>
 
   <div class="banner">
-    <h1>Les meilleurs Blu-ray à prix juste</h1>
+    <h1>Vente de Films BluRays physique</h1>
   </div>
 
   <section class="produits">
