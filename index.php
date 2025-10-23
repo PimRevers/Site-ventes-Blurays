@@ -1,3 +1,11 @@
+<?php
+
+  require("config/commandes.php");
+  $Produits = afficher();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -101,20 +109,22 @@
     
     .produits {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       padding: 40px;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .carte {
       background: var(--gris-carte);
       border-radius: 10px;
-      padding: 15px;
+      padding: 15px; /* espace intérieur pour tous les éléments */
       text-align: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.2s, box-shadow 0.2s;
+      max-width: 250px;
+      margin: 0 auto;
     }
 
     .carte:hover {
@@ -123,9 +133,12 @@
     }
 
     .carte img {
-      width: 100%;
+      width: 100%; /* s’adapte au conteneur */
+      height: auto; 
+      object-fit: cover;
       border-radius: 6px;
       margin-bottom: 10px;
+      display: block;
     }
 
     .carte h3 {
@@ -173,6 +186,25 @@
         font-size: 1.5em;
       }
     }
+
+    @media (max-width: 1000px) {
+      .produits {
+        grid-template-columns: repeat(3, 1fr); /* 3 par ligne */
+      }
+    }
+
+    @media (max-width: 700px) {
+      .produits {
+        grid-template-columns: repeat(2, 1fr); /* 2 par ligne */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .produits {
+        grid-template-columns: repeat(1, 1fr); /* 1 seul sur petit écran */
+      }
+    }
+
   </style>
 
 </head>
@@ -196,30 +228,14 @@
   </div>
 
   <section class="produits">
-    <div class="carte">
-      <img src="https://via.placeholder.com/200x300/1e90ff/ffffff?text=Film+1" alt="Film 1">
-      <h3>Film 1</h3>
-      <p class="prix">14,99 €</p>
-      <button class="btn">Ajouter au panier</button>
-    </div>
-    <div class="carte">
-      <img src="https://via.placeholder.com/200x300/1e90ff/ffffff?text=Film+2" alt="Film 2">
-      <h3>Film 2</h3>
-      <p class="prix">19,99 €</p>
-      <button class="btn">Ajouter au panier</button>
-    </div>
-    <div class="carte">
-      <img src="https://via.placeholder.com/200x300/1e90ff/ffffff?text=Film+3" alt="Film 3">
-      <h3>Film 3</h3>
-      <p class="prix">12,99 €</p>
-      <button class="btn">Ajouter au panier</button>
-    </div>
-    <div class="carte">
-      <img src="https://via.placeholder.com/200x300/1e90ff/ffffff?text=Film+4" alt="Film 4">
-      <h3>Film 4</h3>
-      <p class="prix">17,99 €</p>
-      <button class="btn">Ajouter au panier</button>
-    </div>
+      <?php foreach ($Produits as $produit): ?>
+        <div class="carte">
+          <img src="<?= $produit['url'] ?>" class="img">
+          <h3><?= $produit['nom'] ?></h3>
+          <p class="prix"><?= $produit['prix']?> €</p>
+          <button class="btn">Ajouter au panier</button>
+        </div>
+      <?php endforeach; ?>
   </section>
 
   <footer>
