@@ -1,5 +1,12 @@
 <?php
 
+    session_start();
+
+    if (!isset($_SESSION['session_unique'])) {
+        header("Location: ../login.php/");
+        exit;
+    }
+
     require("../config/commandes.php");
 
 ?>
@@ -147,11 +154,13 @@
 <body>
     
     <nav>
-        <div class="logo">Blu-Ray Store</div>
+        <div class="logo">Blu-Ray Store - Administration</div>
         <ul>
             <li><a href="../index.php">Accueil</a></li>
             <!--<li><a href="#">Catalogue</a></li>-->
-            <li><a href="login.php">Connexion</a></li>
+            <li><a href="index_ajouter.php">Ajouter</a></li>
+            <li><a href="index_supprimer.php">Supprimer</a></li>
+            <li><a href="logout.php">Déconnexion</a></li>
             <li><a href="#">Panier</a></li>
         </ul>
     </nav>

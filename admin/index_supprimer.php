@@ -1,16 +1,24 @@
 <?php
-require("../config/commandes.php");
 
-if (isset($_POST['valider'])) {
-    if (!empty($_POST['id']) AND is_numeric($_POST['id'])) {
-        $id = htmlspecialchars(strip_tags($_POST['id']));
-        supprimer($id);
-        header("Location: ".$_SERVER['PHP_SELF']); // recharge la page après suppression
+    session_start();
+
+    if (!isset($_SESSION['session_unique'])) {
+        header("Location: ../login.php/");
         exit;
     }
-}
 
-$Produits = afficher();
+    require("../config/commandes.php");
+
+    if (isset($_POST['valider'])) {
+        if (!empty($_POST['id']) AND is_numeric($_POST['id'])) {
+            $id = htmlspecialchars(strip_tags($_POST['id']));
+            supprimer($id);
+            header("Location: ".$_SERVER['PHP_SELF']); // recharge la page après suppression
+            exit;
+        }
+    }
+
+    $Produits = afficher();
 ?>
 
 <!DOCTYPE html>
@@ -148,10 +156,12 @@ footer {
 <body>
 
 <nav>
-    <div class="logo">Blu-Ray Store</div>
+    <div class="logo">Blu-Ray Store - Administration</div>
     <ul>
         <li><a href="../index.php">Accueil</a></li>
-        <li><a href="login.php">Connexion</a></li>
+        <li><a href="index_ajouter.php">Ajouter</a></li>
+        <li><a href="index_supprimer.php">Supprimer</a></li>
+        <li><a href="logout.php">Déconnexion</a></li>
         <li><a href="#">Panier</a></li>
     </ul>
 </nav>

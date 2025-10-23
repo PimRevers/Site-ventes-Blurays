@@ -1,3 +1,10 @@
+<?php
+
+  session_start();
+  include "config/commandes.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,8 +149,8 @@
     <nav>
         <div class="logo">Blu-Ray Store</div>
         <ul>
-            <li><a href="../index.php">Accueil</a></li>
-            <li><a href="#">Catalogue</a></li>
+            <li><a href="index.php">Accueil</a></li>
+            <!--<li><a href="#">Catalogue</a></li>-->
             <li><a href="login.php">Connexion</a></li>
             <li><a href="#">Panier</a></li>
         </ul>
@@ -152,10 +159,10 @@
     <div class="login-container">
         <div class="login-card">
         <h2>Connexion</h2>
-        <form action="login_process.php" method="POST">
+        <form action="" method="POST">
             <input type="email" name="email" placeholder="Adresse email" required>
             <input type="password" name="password" placeholder="Mot de passe" required>
-            <button type="submit">Se connecter</button>
+            <button type="submit" name="envoyer">Se connecter</button>
         </form>
         </div>
     </div>
@@ -166,3 +173,24 @@
 
 </body>
 </html>
+
+<?php
+
+    if (isset($_POST['envoyer'])) {
+      if (!empty($_POST['email']) AND !empty($_POST['password'])) {
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+
+        $admin = getAdmin($email, $password);
+
+        if ($admin) {
+          $_SESSION['session_unique'] = $admin;
+          header("Location: admin/index_ajouter.php");
+        }
+        else {
+          echo "Il y a un problème !\n";
+        }
+      }
+    }
+
+?>

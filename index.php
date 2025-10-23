@@ -214,7 +214,7 @@
     <ul>
       <li><a href="index.php">Accueil</a></li>
       <!--<li><a href="#">Catalogue</a></li>-->
-      <li><a href="admin/index_ajouter.php">Connexion</a></li>
+      <li><a href="login.php">Connexion</a></li>
       <li><a href="#">Panier</a></li>
     </ul>
   </nav>

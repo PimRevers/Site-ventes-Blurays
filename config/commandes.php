@@ -1,10 +1,41 @@
 <?php
 
+    function getAdmin($email, $password) {
+        require("connexion.php");
+
+        $query = "SELECT * FROM ADMIN WHERE email = ? AND motDePasse = ?";
+
+        $resultat = $conn->prepare($query);
+
+        $resultat->bind_param("ss", $email, $password);
+
+        if (!$resultat) {
+            die("Erreur préparation : " . $conn->error);
+        }
+
+        $resultat->execute();
+
+        if ($conn->error) {
+            die("Erreur exécution : " . $conn->error);
+        }   
+
+        $result = $resultat->get_result();
+
+        if ($result->num_rows === 1) {
+            $data = $result->fetch_assoc();
+            $result->close();
+            return $data;
+        }
+        else {
+            $result->close();
+            return false;
+        }
+    }
+
     function ajouter($nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url, $prix) {
         require("connexion.php");
 
         $query = "INSERT INTO BLURAY (nom, date_sortie, realisateur, acteurs, genre, duree, url, prix) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        #$query = "INSERT INTO BLURAY VALUES ($nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url, $prix)";
 
         $resultat = $conn->prepare($query);
 
