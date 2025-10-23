@@ -212,9 +212,9 @@
   <nav>
     <div class="logo">Blu-Ray Store</div>
     <ul>
-      <li><a href="#">Accueil</a></li>
-      <li><a href="#">Catalogue</a></li>
-      <li><a href="#">Connexion</a></li>
+      <li><a href="index.php">Accueil</a></li>
+      <!--<li><a href="#">Catalogue</a></li>-->
+      <li><a href="admin/index_ajouter.php">Connexion</a></li>
       <li><a href="#">Panier</a></li>
     </ul>
   </nav>
@@ -224,7 +224,7 @@
   </div>
 
   <div class="online">
-    <h2>Derniers Blu-Ray mis en ligne</h2>
+    <h2>Liste des Blu-Rays disponible</h2>
   </div>
 
   <section class="produits">

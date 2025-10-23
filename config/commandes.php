@@ -1,13 +1,17 @@
 <?php
 
-    function ajouter($nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url) {
-        if (require("connexion.php")) {
-            $query = "INSERT INTO BLURAY VALUES ($nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url)";
+    function ajouter($nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url, $prix) {
+        require("connexion.php");
 
-            $resultat = $conn->execute_query($query);
+        $query = "INSERT INTO BLURAY (nom, date_sortie, realisateur, acteurs, genre, duree, url, prix) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        #$query = "INSERT INTO BLURAY VALUES ($nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url, $prix)";
 
-            $resultat->free_result();
-        }
+        $resultat = $conn->prepare($query);
+
+        $resultat->bind_param("sssssssd", $nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url, $prix);
+        $resultat->execute();
+
+        $resultat->close();
     }
 
     function afficher() {
@@ -21,13 +25,14 @@
     }
 
     function supprimer($id) {
-        if (require("connexion.php")) {
-            $query = "DELETE FROM BLURAY WHERE id = ?";
-            
-            $resultat = $conn->execute_query($query);
+        require("connexion.php");
+        $query = "DELETE FROM BLURAY WHERE id = ?";
 
-            $resultat->free_result();
-        }
+        $resultat = $conn->prepare($query);
+        $resultat->bind_param("i", $id);
+        $resultat->execute();
+
+        $resultat->close();
     }
 
 ?>
