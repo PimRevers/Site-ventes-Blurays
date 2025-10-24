@@ -161,7 +161,7 @@
             <li><a href="index_ajouter.php">Ajouter</a></li>
             <li><a href="index_supprimer.php">Supprimer</a></li>
             <li><a href="logout.php">Déconnexion</a></li>
-            <li><a href=".. /panier.php">Panier</a></li>
+            <li><a href="../panier.php">Panier</a></li>
         </ul>
     </nav>
 

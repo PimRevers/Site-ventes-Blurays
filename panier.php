@@ -174,10 +174,27 @@ if (!empty($_SESSION['panier'])) {
       background: var(--rouge);
       margin-left: 15px;
     }
+    
 
     .vider:hover {
       background: #c0392b;
     }
+
+    .commander {
+      display: inline-block;
+      background: var(--bleu-clair);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .commander:hover {
+      background: var(--bleu-fonce);
+    }
+
 
     footer {
       background: linear-gradient(135deg, var(--bleu-clair), var(--bleu-moyen), var(--bleu-fonce));
@@ -239,6 +256,7 @@ if (!empty($_SESSION['panier'])) {
 
       <div style="text-align:center;">
         <a href="index.php" class="retour">← Continuer mes achats</a>
+        <a href="paiement.php" class="commander">Passer la commande</a>
         <a href="vider_panier.php" class="vider">Vider le panier</a>
       </div>
 
