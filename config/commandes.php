@@ -1,13 +1,14 @@
 <?php
 
     function getAdmin($email, $password) {
-        require("connexion.php");
+        require_once("connexion.php");
 
-        $query = "SELECT * FROM ADMIN WHERE email = ? AND motDePasse = ?";
+
+        $query = "SELECT id,email,motDePasse FROM ADMIN WHERE email = ?";
 
         $resultat = $conn->prepare($query);
 
-        $resultat->bind_param("ss", $email, $password);
+        $resultat->bind_param("s", $email);
 
         if (!$resultat) {
             die("Erreur préparation : " . $conn->error);
@@ -27,6 +28,7 @@
             return $data;
         }
         else {
+            die("Erreur: result est vide");
             $result->close();
             return false;
         }

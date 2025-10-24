@@ -1,12 +1,12 @@
 <?php
 
-  session_start();
+  
   include "config/commandes.php";
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Connexion - BluRay Store</title>
 
@@ -178,6 +178,7 @@
 
     if (isset($_POST['envoyer'])) {
       if (!empty($_POST['email']) AND !empty($_POST['password'])) {
+        session_start();
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
