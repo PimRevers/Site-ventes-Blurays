@@ -215,7 +215,7 @@
       <li><a href="index.php">Accueil</a></li>
       <!--<li><a href="#">Catalogue</a></li>-->
       <li><a href="login.php">Connexion</a></li>
-      <li><a href="#">Panier</a></li>
+      <li><a href="panier.php">Panier</a></li>
     </ul>
   </nav>
 
@@ -233,7 +233,10 @@
           <img src="<?= $produit['url'] ?>" class="img">
           <h3><?= $produit['nom'] ?></h3>
           <p class="prix"><?= $produit['prix']?> €</p>
-          <button class="btn">Ajouter au panier</button>
+          <form action="ajouter_panier.php" method="POST">
+              <input type="hidden" name="id" value="<?= $produit['id'] ?>">
+              <button type="submit" class="btn">Ajouter au panier</button>
+          </form>
         </div>
       <?php endforeach; ?>
   </section>
