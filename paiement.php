@@ -1,17 +1,17 @@
 <?php
-session_start();
+    session_start();
 
-// Si le panier est vide, on renvoie vers la boutique
-if (empty($_SESSION['panier'])) {
-    header("Location: panier.php");
-    exit;
-}
+    // Si le panier est vide, on renvoie vers la boutique
+    if (empty($_SESSION['panier'])) {
+        header("Location: panier.php");
+        exit;
+    }
 
-// Calcul du total
-$total = 0;
-foreach ($_SESSION['panier'] as $item) {
-    $total += $item['prix'] * $item['quantite'];
-}
+    // Calcul du total
+    $total = 0;
+    foreach ($_SESSION['panier'] as $item) {
+        $total += $item['prix'] * $item['quantite'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -231,7 +231,7 @@ foreach ($_SESSION['panier'] as $item) {
   </main>
 
   <footer>
-    © 2025 Blu-Ray Store — Paiement sécurisé.
+    © 2025 Blu-Ray Store — Tous droits réservés.
   </footer>
 
 </body>
