@@ -230,7 +230,9 @@
   <section class="produits">
       <?php foreach ($Produits as $produit): ?>
         <div class="carte">
-          <img src="<?= $produit['url'] ?>" class="img">
+          <a href="produit.php?id=<?= $produit['id'] ?>">
+             <img src="<?= $produit['url'] ?>" class="img">
+          </a>
           <h3><?= $produit['nom'] ?></h3>
           <p class="prix"><?= $produit['prix']?> €</p>
           <form action="ajouter_panier.php" method="POST">

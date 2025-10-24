@@ -34,6 +34,22 @@
         }
     }
 
+    function getProduitById($id) {
+        require("config/connexion.php");
+
+        $req = $conn->prepare("SELECT * FROM BLURAY WHERE id = ?");
+        $req->bind_param("i", $id);
+        $req->execute();
+
+        $result = $req->get_result();
+        if ($result->num_rows === 1) {
+            return $result->fetch_assoc();
+        }
+        else {
+            return false;
+        }
+    }
+
     function ajouter($nom, $date_sortie, $realisateur, $acteurs, $genre, $duree, $url, $prix) {
         require("connexion.php");
 
