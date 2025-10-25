@@ -224,7 +224,7 @@
   </div>
 
   <div class="online">
-    <h2>Liste des Blu-Rays disponible</h2>
+    <h2>Liste des Blu-Rays disponibles</h2>
   </div>
 
   <section class="produits">
